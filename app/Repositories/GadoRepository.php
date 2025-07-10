@@ -6,19 +6,19 @@ use App\Models\Gado;
 
 class GadoRepository {
 
-    public function getGados() {
+    public function getAll() {
         return Gado::all();
     }
 
-    public function findGado($id) {
+    public function find($id) {
         return Gado::findOrFail($id);
     }
 
-    public function createGado($data) {
+    public function create($data) {
         return Gado::create($data);
     }
 
-    public function updateGado($id, array $data) {
+    public function update($id, array $data) {
         $gado = Gado::findOrFail($id);
         $gado->update($data);
         return $gado;
