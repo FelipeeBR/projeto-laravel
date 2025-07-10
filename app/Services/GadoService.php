@@ -5,7 +5,9 @@ namespace App\Services;
 use App\Repositories\GadoRepository;
 
 class GadoService {
-    public function __construct(protected GadoRepository $gadoRepository) {
+    protected $gadoRepository;
+
+    public function __construct(GadoRepository $gadoRepository) {
         $this->gadoRepository = $gadoRepository;
     }
 
