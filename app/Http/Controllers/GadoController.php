@@ -34,4 +34,9 @@ class GadoController extends Controller {
         $this->gadoService->deleteGado($id);
         return redirect()->route('dashboard');
     }
+
+    public function show($codigo) {
+        $gado = $this->gadoService->getGadoByCodigo($codigo);
+        return view('gado.show', compact('gado'));
+    }
 }

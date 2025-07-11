@@ -28,4 +28,8 @@ class GadoRepository {
         $gado = Gado::findOrFail($id);
         $gado->delete();
     }
+
+    public function findByCodigo($codigo) {
+        return Gado::where('codigo', $codigo)->first();
+    }
 }

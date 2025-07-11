@@ -18,6 +18,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/gado', [App\Http\Controllers\GadoController::class, 'index'])->name('gado.index');
+Route::get('/gado/show/{codigo}', [App\Http\Controllers\GadoController::class, 'show'])->name('gado.show');
 Route::get('/gado/create', [App\Http\Controllers\GadoController::class, 'create'])->name('gado.create');
 Route::post('/gado', [App\Http\Controllers\GadoController::class, 'store'])->name('gado.store');
 Route::get('/gado/{id}/edit', [App\Http\Controllers\GadoController::class, 'edit'])->name('gado.edit');

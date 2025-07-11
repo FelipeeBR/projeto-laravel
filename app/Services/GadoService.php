@@ -36,4 +36,8 @@ class GadoService {
     public function deleteGado($id) {
         return $this->gadoRepository->delete($id);
     }
+
+    public function getGadoByCodigo($codigo) {
+        return $this->gadoRepository->findByCodigo($codigo);
+    }
 }

@@ -11,9 +11,6 @@
             <thead>
                 <tr>
                     <th>Código</th>
-                    <th>Quantidade de leite (semanal)</th>
-                    <th>Quantidade de ração (semanal)</th>
-                    <th>Peso</th>
                     <th>Data de nascimento</th>
                     <th>Ações</th>
                 </tr>
@@ -22,9 +19,6 @@
                 @foreach ($gados as $gado)
                     <tr>
                         <td>{{ $gado->codigo }}</td>
-                        <td>{{ $gado->leite }}</td>
-                        <td>{{ $gado->racao }}</td>
-                        <td>{{ $gado->peso }}</td>
                         <td>{{ $gado->data_nascimento }}</td>
                         <td>
                             <form action={{ route('gado.destroy', $gado->id) }} method="POST" onsubmit="return confirm('Tem certeza que deseja excluir?');">
@@ -32,6 +26,7 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Deletar</button>
                             </form>
+                            <a href={{ route('gado.show', $gado->codigo) }} class="btn btn-primary">Visualizar</a>
                         </td>
                     </tr>
                 @endforeach
