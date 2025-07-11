@@ -20,6 +20,9 @@ class GadoService {
     }
 
     public function createGado($data) {
+        if(isset($data['data_nascimento']) && $data['data_nascimento'] > now()) {
+            throw new \Exception('Data de nascimento não pode ser maior que a data atual.');
+        }
         return $this->gadoRepository->create($data);
     }
 

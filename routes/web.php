@@ -17,4 +17,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/gado', [App\Http\Controllers\GadoController::class, 'index'])->name('gado.index');
+Route::get('/gado/create', [App\Http\Controllers\GadoController::class, 'create'])->name('gado.create');
+Route::post('/gado', [App\Http\Controllers\GadoController::class, 'store'])->name('gado.store');
+Route::get('/gado/{id}/edit', [App\Http\Controllers\GadoController::class, 'edit'])->name('gado.edit');
+Route::put('/gado/{id}', [App\Http\Controllers\GadoController::class, 'update'])->name('gado.update');
+Route::delete('/gado/{id}', [App\Http\Controllers\GadoController::class, 'destroy'])->name('gado.destroy');
+
 require __DIR__.'/auth.php';
