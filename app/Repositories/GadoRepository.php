@@ -23,4 +23,9 @@ class GadoRepository {
         $gado->update($data);
         return $gado;
     }
+
+    public function delete($id) {
+        $gado = Gado::findOrFail($id);
+        $gado->delete();
+    }
 }

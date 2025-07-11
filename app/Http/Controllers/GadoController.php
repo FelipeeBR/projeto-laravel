@@ -29,4 +29,9 @@ class GadoController extends Controller {
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
+
+    public function destroy($id) {
+        $this->gadoService->deleteGado($id);
+        return redirect()->route('dashboard');
+    }
 }

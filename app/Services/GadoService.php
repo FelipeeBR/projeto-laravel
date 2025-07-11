@@ -32,4 +32,8 @@ class GadoService {
     public function updateGado($id, array $data) {
         return $this->gadoRepository->update($id, $data);
     }
+
+    public function deleteGado($id) {
+        return $this->gadoRepository->delete($id);
+    }
 }
