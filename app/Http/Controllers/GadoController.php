@@ -24,7 +24,7 @@ class GadoController extends Controller {
     public function store(Request $request) {
         try {
             $this->gadoService->createGado($request->all());
-            return redirect()->route('dashboard');
+            return redirect()->route('gado.index');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
@@ -32,11 +32,25 @@ class GadoController extends Controller {
 
     public function destroy($id) {
         $this->gadoService->deleteGado($id);
-        return redirect()->route('dashboard');
+        return redirect()->route('gado.index');
     }
 
     public function show($codigo) {
         $gado = $this->gadoService->getGadoByCodigo($codigo);
         return view('gado.show', compact('gado'));
+    }
+
+    public function edit($id) {
+        $gado = $this->gadoService->getGado($id);
+        return view('gado.edit', compact('gado'));
+    }
+
+    public function update(Request $request, $id) {
+        try {
+            $this->gadoService->updateGado($id, $request->all());
+            return redirect()->route('gado.index');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage());
+        }
     }
 }

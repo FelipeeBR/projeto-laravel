@@ -30,6 +30,12 @@ class GadoService {
     }
 
     public function updateGado($id, array $data) {
+        if(isset($data['data_nascimento']) && $data['data_nascimento'] > now()) {
+            throw new \Exception('Data de nascimento não pode ser maior que a data atual.');
+        }
+        if(isset($data['codigo']) && $this->getGado($data['codigo'])) {
+            throw new \Exception('Código já cadastrado.');
+        }
         return $this->gadoRepository->update($id, $data);
     }
 

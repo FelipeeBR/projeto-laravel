@@ -3,6 +3,11 @@
 @endphp
 <form action={{ isset($gado->id) ? route('gado.update', $gado->id) : route('gado.store') }} method="POST">
     @csrf
+    @csrf
+    @if(isset($gado->id))
+        @method('PUT')
+    @endif
+
     <div class="card-body">
         <div class="form-group">
             <label for="inputCodigo">Codigo</label>
