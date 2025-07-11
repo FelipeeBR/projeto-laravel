@@ -46,4 +46,8 @@ class GadoService {
     public function getGadoByCodigo($codigo) {
         return $this->gadoRepository->findByCodigo($codigo);
     }
+
+    public function getGadoAbate() {
+        return $this->gadoRepository->findAbate();
+    }
 }

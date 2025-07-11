@@ -53,4 +53,9 @@ class GadoController extends Controller {
             return redirect()->back()->with('error', $e->getMessage());
         }
     }
+
+    public function abate() {
+        $gados = $this->gadoService->getGadoAbate();
+        return view('gado.abate', compact('gados'));
+    }
 }

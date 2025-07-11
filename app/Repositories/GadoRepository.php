@@ -32,4 +32,26 @@ class GadoRepository {
     public function findByCodigo($codigo) {
         return Gado::where('codigo', $codigo)->first();
     }
+
+    public function findAbate() {
+        $gados = $this->getAll();
+        $data_hoje = date_create();
+        $resultado = array();
+        $arroba = 18 * 15;
+        foreach($gados as $gado) {
+            $dataNascimento = date_create($gado->data_nascimento);
+            $idade = date_diff($dataNascimento, $data_hoje)->y;
+            $racao_dia = $gado->racao / 7;
+            if($idade > 5 || $gado->leite < 40) {
+                $resultado[] = $gado;
+            }
+            if($gado->leite < 70 && $racao_dia > 50) {
+                $resultado[] = $gado;
+            }
+            if($gado->peso > $arroba) {
+                $resultado[] = $gado;
+            }
+        }
+        return $resultado;
+    }
 }

@@ -25,4 +25,6 @@ Route::get('/gado/{id}/edit', [App\Http\Controllers\GadoController::class, 'edit
 Route::put('/gado/{id}', [App\Http\Controllers\GadoController::class, 'update'])->name('gado.update');
 Route::delete('/gado/{id}', [App\Http\Controllers\GadoController::class, 'destroy'])->name('gado.destroy');
 
+Route::get('/gado/abate', [App\Http\Controllers\GadoController::class, 'abate'])->name('gado.abate');
+
 require __DIR__.'/auth.php';
