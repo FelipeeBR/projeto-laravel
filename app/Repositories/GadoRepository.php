@@ -11,7 +11,7 @@ class GadoRepository {
     }
 
     public function find($id) {
-        return Gado::findOrFail($id);
+        return Gado::where('codigo', $id)->first();
     }
 
     public function create($data) {
