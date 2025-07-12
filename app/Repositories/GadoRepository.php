@@ -74,4 +74,9 @@ class GadoRepository {
         $gados = $this->getAllNotAbate();
         return $gados->sum('leite');
     }
+
+    public function findTotalRacao() {
+        $gados = $this->getAllNotAbate();
+        return $gados->sum('racao');
+    }
 }

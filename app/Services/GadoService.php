@@ -62,4 +62,8 @@ class GadoService {
     public function getTotalLeite() {
         return $this->gadoRepository->findTotalLeite();
     }
+
+    public function getTotalRacao() {
+        return $this->gadoRepository->findTotalRacao();
+    }
 }

@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [App\Http\Controllers\GadoController::class, 'getTotalLeite'], function () {
+Route::get('/dashboard', [App\Http\Controllers\GadoController::class, 'dashboard'], function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
