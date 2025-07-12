@@ -14,6 +14,10 @@ class GadoRepository {
         return Gado::where('abatido', false)->get();
     }
 
+    public function getAllAbate() {
+        return Gado::where('abatido', true)->get();
+    }
+
     public function find($id) {
         return Gado::where('codigo', $id)->first();
     }

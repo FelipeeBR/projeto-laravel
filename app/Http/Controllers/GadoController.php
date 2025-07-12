@@ -63,4 +63,9 @@ class GadoController extends Controller {
         $this->gadoService->updateAbate($id);
         return redirect()->route('gado.abate');
     }
+
+    public function listAbatidos() {
+        $gados = $this->gadoService->getAllAbate();
+        return view('gado.listAbatidos', compact('gados'));
+    }
 }

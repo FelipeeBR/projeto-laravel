@@ -54,4 +54,8 @@ class GadoService {
     public function updateAbate($id) {
         return $this->gadoRepository->updateAbate($id);
     }
+
+    public function getAllAbate() {
+        return $this->gadoRepository->getAllAbate();
+    }
 }
