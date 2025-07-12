@@ -79,4 +79,18 @@ class GadoRepository {
         $gados = $this->getAllNotAbate();
         return $gados->sum('racao');
     }
+
+    public function findTotalIdadeAndConsumo() {
+        $gados = $this->getAllNotAbate();
+        $data_hoje = date_create();
+        $resultado = array();
+        foreach($gados as $gado) {
+            $dataNascimento = date_create($gado->data_nascimento);
+            $idade = date_diff($dataNascimento, $data_hoje)->y;
+            if($idade <= 1 && $gado->racao > 500) {
+                $resultado[] = $gado;
+            }
+        }
+        return $resultado;
+    }
 }

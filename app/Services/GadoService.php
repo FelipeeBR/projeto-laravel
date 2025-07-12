@@ -66,4 +66,8 @@ class GadoService {
     public function getTotalRacao() {
         return $this->gadoRepository->findTotalRacao();
     }
+
+    public function getTotalIdadeAndConsumo() {
+        return $this->gadoRepository->findTotalIdadeAndConsumo();
+    }
 }

@@ -79,9 +79,15 @@ class GadoController extends Controller {
         return view('dashboard', compact('totalRacao'));
     }
 
+    public function getTotalIdadeAndConsumo() {
+        $totalIdadeAndConsumo = $this->gadoService->getTotalIdadeAndConsumo();
+        return view('dashboard', compact('totalIdadeAndConsumo'));
+    }
+
     public function dashboard() {
         $totalLeite = $this->gadoService->getTotalLeite();
         $totalRacao = $this->gadoService->getTotalRacao();
-        return view('dashboard', compact('totalLeite', 'totalRacao'));
+        $totalIdadeAndConsumo = $this->gadoService->getTotalIdadeAndConsumo();
+        return view('dashboard', compact('totalLeite', 'totalRacao', 'totalIdadeAndConsumo'));
     }
 }
