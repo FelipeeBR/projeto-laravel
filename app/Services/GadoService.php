@@ -58,4 +58,8 @@ class GadoService {
     public function getAllAbate() {
         return $this->gadoRepository->getAllAbate();
     }
+
+    public function getTotalLeite() {
+        return $this->gadoRepository->findTotalLeite();
+    }
 }

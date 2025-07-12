@@ -69,4 +69,9 @@ class GadoRepository {
         $gado->abatido = true;
         $gado->save();
     }
+
+    public function findTotalLeite() {
+        $gados = $this->getAllNotAbate();
+        return $gados->sum('leite');
+    }
 }

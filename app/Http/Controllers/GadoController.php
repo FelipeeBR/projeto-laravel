@@ -68,4 +68,9 @@ class GadoController extends Controller {
         $gados = $this->gadoService->getAllAbate();
         return view('gado.listAbatidos', compact('gados'));
     }
+
+    public function getTotalLeite() {
+        $totalLeite = $this->gadoService->getTotalLeite();
+        return view('dashboard', compact('totalLeite'));
+    }
 }
