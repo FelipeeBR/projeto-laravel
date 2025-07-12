@@ -10,6 +10,10 @@ class GadoRepository {
         return Gado::all();
     }
 
+    public function getAllNotAbate() {
+        return Gado::where('abatido', false)->get();
+    }
+
     public function find($id) {
         return Gado::where('codigo', $id)->first();
     }
@@ -34,7 +38,7 @@ class GadoRepository {
     }
 
     public function findAbate() {
-        $gados = $this->getAll();
+        $gados = $this->getAllNotAbate();
         $data_hoje = date_create();
         $resultado = array();
         $arroba = 18 * 15;
@@ -42,6 +46,7 @@ class GadoRepository {
             $dataNascimento = date_create($gado->data_nascimento);
             $idade = date_diff($dataNascimento, $data_hoje)->y;
             $racao_dia = $gado->racao / 7;
+
             if($idade > 5 || $gado->leite < 40) {
                 $resultado[] = $gado;
             }
@@ -53,5 +58,11 @@ class GadoRepository {
             }
         }
         return $resultado;
+    }
+
+    public function updateAbate($id) {
+        $gado = Gado::findOrFail($id);
+        $gado->abatido = true;
+        $gado->save();
     }
 }

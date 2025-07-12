@@ -58,4 +58,9 @@ class GadoController extends Controller {
         $gados = $this->gadoService->getGadoAbate();
         return view('gado.abate', compact('gados'));
     }
+
+    public function updateAbate($id) {
+        $this->gadoService->updateAbate($id);
+        return redirect()->route('gado.abate');
+    }
 }

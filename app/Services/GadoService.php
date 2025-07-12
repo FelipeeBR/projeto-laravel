@@ -50,4 +50,8 @@ class GadoService {
     public function getGadoAbate() {
         return $this->gadoRepository->findAbate();
     }
+
+    public function updateAbate($id) {
+        return $this->gadoRepository->updateAbate($id);
+    }
 }
