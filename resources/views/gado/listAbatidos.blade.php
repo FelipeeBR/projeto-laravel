@@ -20,7 +20,7 @@
                         @foreach ($gados as $gado)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
                                 <td class="px-4 py-4 sm:px-6">{{ $gado->codigo }}</td>
-                                <td class="px-4 py-4 sm:px-6">{{ $gado->data_nascimento }}</td>
+                                <td class="px-4 py-4 sm:px-6">{{ \Carbon\Carbon::parse($gado->data_nascimento)->format('d/m/Y') }}</td>
                             </tr>
                         @endforeach
                     </tbody>
