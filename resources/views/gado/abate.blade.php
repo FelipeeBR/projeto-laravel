@@ -41,6 +41,7 @@
                     </tbody>
                 </table>
             </div>
+            {{ $gados->links() }}
         </div>
     </div>
 @endsection
