@@ -7,11 +7,11 @@ use App\Models\Gado;
 class GadoRepository {
 
     public function getAll() {
-        return Gado::all();
+        return Gado::orderby('created_at', 'desc')->paginate(3);
     }
 
     public function getAllNotAbate() {
-        return Gado::where('abatido', false)->get();
+        return Gado::where('abatido', false)->orderBy('created_at', 'desc')->paginate(3);
     }
 
     public function getAllAbate() {
