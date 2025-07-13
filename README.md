@@ -45,5 +45,6 @@ controllers e demais partes do sistema.
 ## Pontos extras:
 
 ● Docker
+● Padronização de commits
 
 
