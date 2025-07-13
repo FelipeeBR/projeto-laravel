@@ -42,4 +42,8 @@ controllers e demais partes do sistema.
 
 ● Paginação e ordenação dos registros em tela;
 
+## Pontos extras:
+
+● Docker
+
 
