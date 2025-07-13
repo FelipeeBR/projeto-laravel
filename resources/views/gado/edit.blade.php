@@ -13,9 +13,9 @@
             {{ session('error') }}
         </div>
     @endif
-    <div class="card card-outline card-primary">
-        <div class="card-header">
-            <h3 class="card-title">Preencha os Campos</h3>
+    <div class="max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+        <div class="flex items-center justify-center pb-4">
+            <h3 class="font-semibold text-xl text-gray-800 leading-tight text-center">Preencha os Campos</h3>
         </div>
         @include('gado.form', ['gado' => $gado])
     </div>

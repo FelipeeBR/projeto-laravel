@@ -19,7 +19,7 @@ class GadoRepository {
     }
 
     public function find($id) {
-        return Gado::where('codigo', $id)->first();
+        return Gado::where('id', $id)->first();
     }
 
     public function create($data) {

@@ -6,12 +6,12 @@
     <div class="flex items-center justify-center">
         <div class="p-4 w-full max-w-7xl">
             <div class="flex items-center justify-center pb-4">
-                <h3 class="mb-2 text-2xl text-center tracking-tight text-gray-900 dark:text-white" style="font-weight: 600">
+                <h3 class="font-semibold text-xl text-gray-800 leading-tight text-center">
                     Listagem de Gados
                 </h3>
             </div>
             <div class="overflow-x-auto">
-                <table class="w-full bg-white border border-gray-300 shadow-lg">
+                <table class="w-full rounded-lg bg-white border border-gray-300 shadow-lg">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th class="px-4 py-3 sm:px-6">Código</th>
