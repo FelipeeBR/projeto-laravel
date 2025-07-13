@@ -10,7 +10,7 @@
                     Listagem de Gados
                 </h3>
             </div>
-            <div class="overflow-x-auto">
+            <div class="overflow-x-auto max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg border border-gray-100">
                 <table class="w-full rounded-lg bg-white border border-gray-300 shadow-lg">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
@@ -23,7 +23,7 @@
                         @foreach ($gados as $gado)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
                                 <td class="px-4 py-4 sm:px-6">{{ $gado->codigo }}</td>
-                                <td class="px-4 py-4 sm:px-6">{{ $gado->data_nascimento }}</td>
+                                <td class="px-4 py-4 sm:px-6">{{ \Carbon\Carbon::parse($gado->data_nascimento)->format('d/m/Y') }}</td>
                                 <td class="px-4 py-4 sm:px-6">
                                     <div class="flex flex-col gap-2">
                                         <a href="{{ route('gado.show', $gado->codigo) }}" 
