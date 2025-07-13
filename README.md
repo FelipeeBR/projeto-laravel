@@ -1,61 +1,51 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Full Stack Web Developer – LARAVEL
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Objetivo:
 
-## About Laravel
+Utilize o PHP e preferencialmente os frameworks Symfony ou Laravel para desenvolver um sistema que auxilie no controle de uma fazenda de bovinos.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Requisitos Funcionais:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+● Cadastro, Edição, Deleção, Listagem e Visualização do gado da fazenda, manipulando os seguintes dados:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Código: código da cabeça de gado;
+- Leite: número de litros de leite produzido por semana;
+- Ração: quantidade de alimento ingerida por semana - em quilos;
+- Peso: peso do animal em quilos;
+- Nascimento: data de nascimento do animal.
 
-## Learning Laravel
+● Pode haver apenas um animal vivo com o mesmo código.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+● Relatório de animais para abate, sendo que, um animal pode ser enviado para abate 
+quando atinge alguma das seguintes condições:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- Possui mais de 05 anos de idade;
+- Produza menos de 40 litros de leite por semana;
+- Produza menos de 70 litros de leite por semana e ingira mais de 50 quilos de ração por dia;
+- Possui peso maior que 18 arrobas.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+● Utilize o item anterior para mandar os animais para o abate (o sistema só permite o abate de animais que se enquadre em pelo menos uma das condições citadas no item anterior);
 
-## Laravel Sponsors
+● Relatório de animais abatidos;
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+● Relatório da quantidade total de leite produzido por semana (Tela inicial);
 
-### Premium Partners
+● Relatório da quantidade total de ração necessária por semana (Tela inicial);
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+● Relatório da quantidade total de animais que tenham até 1 ano de idade e que consumam mais de 500Kg de ração por semana (Tela inicial).
 
-## Contributing
+## Requisitos de sistema:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+● De modo geral, códigos de regras de negócio que ficam nos controllers, não são reaproveitados por outros controllers. O que gera a necessidade da repetição de 
+código (má prática). Visando permanecer nas boas práticas, utilize a tática de criação de services para centralização de regras, que poderão ser reutilizadas em vários 
+controllers e demais partes do sistema.
 
-## Code of Conduct
+● Paginação e ordenação dos registros em tela;
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Pontos extras:
 
-## Security Vulnerabilities
+● Docker
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+● Padronização de commits
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
