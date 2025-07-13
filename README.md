@@ -33,3 +33,13 @@ quando atinge alguma das seguintes condições:
 ● Relatório da quantidade total de ração necessária por semana (Tela inicial);
 
 ● Relatório da quantidade total de animais que tenham até 1 ano de idade e que consumam mais de 500Kg de ração por semana (Tela inicial).
+
+## Requisitos de sistema:
+
+● De modo geral, códigos de regras de negócio que ficam nos controllers, não são reaproveitados por outros controllers. O que gera a necessidade da repetição de 
+código (má prática). Visando permanecer nas boas práticas, utilize a tática de criação de services para centralização de regras, que poderão ser reutilizadas em vários 
+controllers e demais partes do sistema.
+
+● Paginação e ordenação dos registros em tela;
+
+
