@@ -15,7 +15,7 @@ class GadoRepository {
     }
 
     public function getAllAbate() {
-        return Gado::where('abatido', true)->get();
+        return Gado::where('abatido', true)->orderBy('created_at', 'desc')->paginate(3);
     }
 
     public function find($id) {
@@ -44,14 +44,17 @@ class GadoRepository {
     public function findAbate() {
         $arroba = 18 * 15;
 
-        return Gado::whereRaw('TIMESTAMPDIFF(YEAR, data_nascimento, CURDATE()) > 5')
-            ->orWhere('leite', '<', 40)
-            ->orWhere(function ($query) {
-                $query->where('leite', '<', 70)
-                    ->whereRaw('(racao / 7) > 50');
-            })
-            ->orWhere('peso', '>', $arroba)
-            ->paginate(3);
+        return Gado::where(function ($query) use ($arroba) {
+            $query->whereRaw('TIMESTAMPDIFF(YEAR, data_nascimento, CURDATE()) > 5')
+                  ->orWhere('leite', '<', 40)
+                  ->orWhere(function ($sub) {
+                      $sub->where('leite', '<', 70)
+                          ->whereRaw('(racao / 7) > 50');
+                  })
+                  ->orWhere('peso', '>', $arroba);
+        })
+        ->where('abatido', false)
+        ->paginate(3);
     }
 
     public function updateAbate($id) {
