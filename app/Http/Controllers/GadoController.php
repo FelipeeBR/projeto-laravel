@@ -24,7 +24,7 @@ class GadoController extends Controller {
     public function store(Request $request) {
         try {
             $this->gadoService->createGado($request->all());
-            return redirect()->route('gado.index');
+            return redirect()->route('gado.index')->with('success', 'Cadastrado com sucesso!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
@@ -61,7 +61,7 @@ class GadoController extends Controller {
 
     public function updateAbate($id) {
         $this->gadoService->updateAbate($id);
-        return redirect()->route('gado.abate');
+        return redirect()->route('gado.abate')->with('success', 'Mandado para abate com sucesso!');
     }
 
     public function listAbatidos() {
