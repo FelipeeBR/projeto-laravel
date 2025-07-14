@@ -42,10 +42,19 @@ controllers e demais partes do sistema.
 
 ● Paginação e ordenação dos registros em tela;
 
+● Criar funções customizadas no repository para buscas mais elaboradas no BD;
+
+● Responsividade.
+
 ## Pontos extras:
 
 ● Docker
 
 ● Padronização de commits
+
+● Testes unitários com PHPUnit
+
+● Bootstrap
+
 
 
