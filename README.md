@@ -63,5 +63,45 @@ controllers e demais partes do sistema.
 
 ● Bootstrap
 
+## Testes Unitários
 
+Teste unitário na camada services em que verifica se a data de nascimento é menor que a atual.
+```
+public function test_create_gado_excessao_data() {
+    $this->expectException(\Exception::class);
+    $this->expectExceptionMessage("Data de nascimento não pode ser maior que a data atual.");
 
+    $repository = new GadoRepository();
+    $service = new GadoService($repository);
+
+    $service->createGado(
+        [
+            'codigo' => 'GADO_0001',
+            'leite' => '1000',
+            'racao' => '1000',
+            'peso' => '1000',
+            'data_nascimento' => now()->addDays(1)->toDateString(),
+        ]
+    );
+}
+```
+Teste unitário na camada services para validar se o codigo é único.
+```
+public function test_create_gado_excessao_codigo() {
+    $this->expectException(\Exception::class);
+    $this->expectExceptionMessage("Código já cadastrado.");
+
+    $repository = new GadoRepository();
+    $service = new GadoService($repository);
+
+    $service->createGado(
+        [
+            'codigo' => 'GADO_0001',
+            'leite' => '1000',
+            'racao' => '1000',
+            'peso' => '1000',
+            'data_nascimento' => now()->subDays(1)->toDateString(),
+        ]
+    );
+}
+```
