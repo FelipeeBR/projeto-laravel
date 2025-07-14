@@ -1,46 +1,53 @@
 @extends('layouts.app')
 
-@section('title', 'Lista de Gados')
+@section('title', 'Gerenciar Gados')
 
 @section('content')
-    <div class="flex items-center justify-center">
-        <div class="p-4 w-full max-w-7xl">
-            <div class="flex items-center justify-center pb-4">
-                <h3 class="font-semibold text-xl text-gray-800 leading-tight text-center">
-                    Listagem de Gados
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+    <div class="container mt-3">
+        <div class="card card-outline card-primary">
+            <div class="card-header">
+                <h3 class="card-title">
+                    Gerenciamento de Gados
                 </h3>
             </div>
-            <div class="overflow-x-auto max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg border border-gray-100">
-                <table class="w-full rounded-lg bg-white border border-gray-300 shadow-lg">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
                         <tr>
-                            <th class="px-4 py-3 sm:px-6">Código</th>
-                            <th class="px-4 py-3 sm:px-6">Data de nascimento</th>
-                            <th class="px-4 py-3 sm:px-6">Ações</th>
+                            <th>Código</th>
+                            <th>Data de nascimento</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($gados as $gado)
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-                                <td class="px-4 py-4 sm:px-6">{{ $gado->codigo }}</td>
-                                <td class="px-4 py-4 sm:px-6">{{ \Carbon\Carbon::parse($gado->data_nascimento)->format('d/m/Y') }}</td>
-                                <td class="px-4 py-4 sm:px-6">
-                                    <div class="flex flex-col gap-2">
+                            <tr>
+                                <td>{{ $gado->codigo }}</td>
+                                <td>{{ \Carbon\Carbon::parse($gado->data_nascimento)->format('d/m/Y') }}</td>
+                                <td>
+                                    <div class="d-flex flex-row gap-2">
                                         <a href="{{ route('gado.show', $gado->codigo) }}" 
-                                            class="inline-flex justify-center items-center text-white text-sm px-3 py-2 rounded sm:px-4 mb-2" style="background: dodgerblue">
+                                            class="btn btn-primary">
                                             Visualizar
                                         </a>   
                                         <a href="{{ route('gado.edit', $gado->id) }}" 
-                                            class="inline-flex justify-center items-center text-white text-sm px-3 py-2 rounded sm:px-4 mb-2" style="background: forestgreen">
+                                            class="btn btn-success">
                                             Editar
                                         </a>
-                                        <form action="{{ route('gado.destroy', $gado->id) }}" method="POST" class="sm:inline-block w-full sm:w-auto" 
-                                            onsubmit="return confirm('Tem certeza que deseja excluir?');">
+                                        <form action="{{ route('gado.destroy', $gado->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir?');">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" 
-                                                    class="w-full text-white text-sm px-3 py-2 rounded sm:px-4" 
-                                                    style="background: red">
+                                            <button type="submit" class="btn btn-danger">
                                                 Deletar
                                             </button>
                                         </form>
@@ -51,7 +58,11 @@
                     </tbody>
                 </table>
             </div>
-            {{ $gados->links() }}
+            <div class="card-footer clearfix">
+                <div class="float-right">
+                    {{ $gados->links('pagination::bootstrap-4') }}
+                </div>
+            </div>
         </div>
     </div>
 @endsection

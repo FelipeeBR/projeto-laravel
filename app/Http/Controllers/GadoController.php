@@ -48,7 +48,7 @@ class GadoController extends Controller {
     public function update(Request $request, $id) {
         try {
             $this->gadoService->updateGado($id, $request->all());
-            return redirect()->route('gado.index');
+            return redirect()->route('gado.index')->with('success', 'Atualizado com sucesso!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }

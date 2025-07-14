@@ -16,8 +16,28 @@
             <!-- Left Side - Navigation Links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="nav-link">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="navbar-brand">
                         {{ __('Dashboard') }}
+                    </x-nav-link>
+                </li>
+                <li class="nav-item">
+                    <x-nav-link :href="route('gado.index')" :active="request()->routeIs('gado.index')" class="nav-link">
+                        {{ __('Gerenciar Cadastros') }}
+                    </x-nav-link>
+                </li>
+                <li class="nav-item">
+                    <x-nav-link :href="route('gado.abate')" :active="request()->routeIs('gado.abate')" class="nav-link">
+                        {{ __('Relatório de Abate') }}
+                    </x-nav-link>
+                </li>
+                <li class="nav-item">
+                    <x-nav-link :href="route('gado.listAbatidos')" :active="request()->routeIs('gado.listAbatidos')" class="nav-link">
+                        {{ __('Relatório de Abatidos') }}
+                    </x-nav-link>
+                </li>
+                <li class="nav-item">
+                    <x-nav-link :href="route('gado.create')" :active="request()->routeIs('gado.create')" class="btn btn-success">
+                        {{ __('Novo Cadastro') }}
                     </x-nav-link>
                 </li>
             </ul>

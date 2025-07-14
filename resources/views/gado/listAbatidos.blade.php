@@ -1,32 +1,43 @@
 @extends('layouts.app')
 
-@section('title', 'Lista de Gados Abatidos')
+@section('title', 'Relatório de Abatidos')
 
 @section('content')
-    <div class="flex items-center justify-center">
-        <div class="p-4 w-full max-w-7xl">
-            <div class="flex items-center justify-center pb-4">
-                <h3 class="font-semibold text-xl text-gray-800 leading-tight text-center">Lista de Gados Abatidos</h3>
+    <div class="container mt-3">
+        <div class="card card-outline card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Relatório Abatidos</h3>
             </div>
-            <div class="overflow-x-auto max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg border border-gray-100">
-                <table class="w-full rounded-lg bg-white border border-gray-300 shadow-lg">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
                         <tr>
-                            <th class="px-4 py-3 sm:px-6">Código</th>
-                            <th class="px-4 py-3 sm:px-6">Data de nascimento</th>
+                            <th>Código</th>
+                            <th>Data de nascimento</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($gados as $gado)
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-                                <td class="px-4 py-4 sm:px-6">{{ $gado->codigo }}</td>
-                                <td class="px-4 py-4 sm:px-6">{{ \Carbon\Carbon::parse($gado->data_nascimento)->format('d/m/Y') }}</td>
+                            <tr>
+                                <td>{{ $gado->codigo }}</td>
+                                <td>{{ \Carbon\Carbon::parse($gado->data_nascimento)->format('d/m/Y') }}</td>
+                                <td>
+                                    <a href="{{ route('gado.show', $gado->codigo) }}" 
+                                        class="btn btn-primary">
+                                        Visualizar
+                                    </a>   
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
-            {{ $gados->links() }}
+            <div class="card-footer clearfix">
+                <div class="float-right">
+                    {{ $gados->links('pagination::bootstrap-4') }}
+                </div>
+            </div>
         </div>
     </div>
 @endsection
