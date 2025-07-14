@@ -1,5 +1,12 @@
 # Full Stack Web Developer – LARAVEL
 
+## Tecnologias Utilizadas
+- Laravel 12
+- MySQL
+- Docker
+- PHPUnit
+- Bootstrap
+
 ## Objetivo:
 
 Utilize o PHP e preferencialmente os frameworks Symfony ou Laravel para desenvolver um sistema que auxilie no controle de uma fazenda de bovinos.
@@ -42,10 +49,19 @@ controllers e demais partes do sistema.
 
 ● Paginação e ordenação dos registros em tela;
 
+● Criar funções customizadas no repository para buscas mais elaboradas no BD;
+
+● Responsividade.
+
 ## Pontos extras:
 
 ● Docker
 
-● Padronização de commits
+● <a href="https://dev.to/tadeubdev/por-que-padronizar-commits-e-algo-importante-1al" target="_blank">Padronização de commits</a>
+
+● Testes unitários com PHPUnit
+
+● Bootstrap
+
 
 
