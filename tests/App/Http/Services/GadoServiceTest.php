@@ -1,12 +1,12 @@
 <?php
 
-namespace Tests\App\Http\Controllers;
+namespace Tests\App\Http\Services;
 
 use Tests\TestCase;
 use App\Services\GadoService;
 use App\Repositories\GadoRepository;
 
-class GadoControllerTest extends TestCase {
+class GadoServiceTest extends TestCase {
 
     public function test_create_gado_excessao_data() {
         $this->expectException(\Exception::class);
