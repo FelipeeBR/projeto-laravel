@@ -57,7 +57,7 @@ controllers e demais partes do sistema.
 
 ● Docker
 
-● Padronização de commits
+● <a href="https://dev.to/tadeubdev/por-que-padronizar-commits-e-algo-importante-1al" target="_blank">Padronização de commits</a>
 
 ● Testes unitários com PHPUnit
 
