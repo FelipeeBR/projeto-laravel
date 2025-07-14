@@ -1,5 +1,12 @@
 # Full Stack Web Developer – LARAVEL
 
+## Tecnologias Utilizadas
+- Laravel 12
+- MySQL
+- Docker
+- PHPUnit
+- Bootstrap
+
 ## Objetivo:
 
 Utilize o PHP e preferencialmente os frameworks Symfony ou Laravel para desenvolver um sistema que auxilie no controle de uma fazenda de bovinos.
